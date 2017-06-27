@@ -27,7 +27,7 @@
   - ##### Cookie：HTTP 请求发送时，会把保存在该请求域名下的所有 cookie 值一起发送给 web 服务器
   - ##### Referer：这个单词是 HTTP 规范拼错了，正确的单词是 referrer。这个属性表示发出该请求的页面 url。
 
-  - ##### Content-Type： application/x-www-form-urlencoded
+  - ##### Content-Type：表示内容的类型，比如 application/x-www-form-urlencoded 表示表单类型的数据
   - ##### Content-Length：请求消息正文的长度，GET 请求时为 0
   - ##### Cache-Control：no-cache
   - ##### Date：浏览器消息发出的时间
@@ -96,9 +96,11 @@
 
 ---
 ### GET 与 POST 的区别
+- #### 从 HTTP 协议的角度来看，不同的 method 之间最重要的是语义之间的区别，这个概念很类似与 HTML 标签。GET 代表的语义是 查询资源，而 POST 的语义是修改资源。
 - #### 通过 GET 提交的数据必须放在 URL 中；而通过 POST 提交的数据放在请求体中。
 - #### GET 方式提交的数据最多只能是 1024 字节；而 POST 理论上没有限制，可传较大量的数据。
 - #### 通过 GET 提交数据，信息明文出现在 URL 上，所以有可能通过浏览器的页面缓存，或是历史纪录造成数据泄露。除此之外，使用GET提交数据还可能会造成 Cross-site request forgery 攻击。
+
 - #### GET 和 POST 都是明文传输，可能被抓包，所以都不安全。想要安全最好进行加密传输，就是用 HTTPS。
 
 

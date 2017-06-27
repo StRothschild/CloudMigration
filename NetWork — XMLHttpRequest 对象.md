@@ -22,14 +22,16 @@
 ```javascript
 /* 通过XMLHttpRequest 构造一个 Ajax 请求 */
 function sendAjax() {
-  //构造表单数据
+  //构造表单
   var formData = new FormData();
+  //如果 form 是页面 DOM 中的表单元素，也可直接作为 formData 的构造参数
+  var formData = new FormData(form);
+  // 往 formData 中手动添加数据
   formData.append('username', 'johndoe');
   formData.append('id', 123456);
+
   //创建xhr对象
   var xhr = new XMLHttpRequest();
-
-
   //设置xhr请求的超时时间
   xhr.timeout = 3000;
   //设置响应返回的数据格式
@@ -62,9 +64,12 @@ function sendAjax() {
   };
   // 断网时，send方法会报错
   try {
-      //发送数据，如果是 GET 请求数据放在url里，这里为null
+      //发送数据，如果是 GET ，请求数据放在 url 里，send 方法里不要参数
+      var url = "?" + encodeURIComponent(name) + "=" + encodeURIComponent(value)
+      xhr.send();
+      //发送数据，如果是 POST，需要在 send 的时候添加数据
       xhr.send(formData);
-      // 另外，这里使用formData 类型的数据后会自动设置 xhr 的 content-type 为 "multipart/form-data"
+      // 另外，如果这里使用 formData 类型的数据作为参数有一个好处，就是 xhr 对象会自动识别 fromData 数据类型并且设置 content-type 为 "multipart/form-data"
   } catch(e) {
 
   }
