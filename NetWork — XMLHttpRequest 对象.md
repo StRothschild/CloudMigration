@@ -36,19 +36,16 @@ function sendAjax() {
   xhr.timeout = 3000;
   //设置响应返回的数据格式
   xhr.responseType = "text";
-  //创建一个 post 请求，采用异步
-  xhr.open('POST', '/server', true);
 
-  // 在设置请求头（requestHeader）时，必须是在 xhr 对象的 opent 方法和 send 方法之间
-  // 添加请求头X-Requested-With，表明是 Ajax 请求
-  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  /* 如果后面追加 xhr.setRequestHeader('X-Requested-With', 'test');
-  最终request header中"X-Requested-With"为:XMLHttpRequest, test */
-
-  //注册相关事件回调处理函数
+  /* 注册完成事件回调处理函数，相当于 readystate == 4 时触发 */
   xhr.onload = function(e) {
-    if(this.status == 200||this.status == 304){
-        console.log(this.response); // 获取响应的内容
+    if(this.status == 200 || this.status == 304) {
+        // 当 responseType 为"text" 或 ""时，用此属性获取返回值
+        console.log(this.responseText);
+        // 返回值要 JSON 对象时，可以调用
+        JSON.parse(this.responseText);
+        // 当 responseType 为"text"、"" 或 "document"时，才用此属性获取返回值
+        console.log(this.responseXML);
     }
   };
   /* 用于请求超时的回调事件 */
@@ -59,10 +56,25 @@ function sendAjax() {
   xhr.upload.onprogress = function(e) {console.log(e);};
   /* 用于下载的回调事件 */
   xhr.onprogress = function(e) {
-      // e.total是需要传输的总字节，event.loaded是已经传输的字节。
-      // 如果 event.lengthComputable 不为真，则 event.total 等于0
+      // event.lengthComputable 属性表示进度数据是否可计算
+      if(e.lengthComputable) {
+        console.log(e.totalSize / e.total); // totalSize / total 表示根据响应头部属性 Content-Length 确定的预期字节数
+        console.log(e.position / e.loaded);  // position / loaded 表示已经接收的字节数
+      }
   };
-  // 断网时，send方法会报错
+
+
+  /* 创建一个 post 请求，采用异步 */
+  xhr.open('POST', '/server', true);
+
+  // 在设置请求头（requestHeader）时，必须是在 xhr 对象的 opent 方法和 send 方法之间
+  /* 添加请求头X-Requested-With，表明是 Ajax 请求 */
+  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  /* 如果后面追加 xhr.setRequestHeader('X-Requested-With', 'test');
+  最终request header中"X-Requested-With"为:XMLHttpRequest, test */
+
+
+  // 断网时，send方法会报错，可以放在 try-catch 结构中
   try {
       //发送数据，如果是 GET ，请求数据放在 url 里，send 方法里不要参数
       var url = "?" + encodeURIComponent(name) + "=" + encodeURIComponent(value)
