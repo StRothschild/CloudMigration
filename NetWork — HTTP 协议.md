@@ -17,16 +17,22 @@
   - #### 十分类似于 XMLHttpRequest 中的 xhr.open(method, url, isAsync)
 
 #### 2. 请求首部(Request Header)
-  - ##### Host：www.baidu.com
+  - ##### Host：目标域名，例如 www.baidu.com
   - ##### User-Agent：Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
   - ##### Accept：text/plain, text/html
   - ##### Accept-Charset：utf-8
-  - ##### Date：浏览器消息发出的时间
-  - ##### Content-Type： application/x-www-form-urlencoded
-  - ##### Content-Length：请求消息正文的长度
-  - ##### Cache-Control：no-cache
+  - ##### Accept-Encoding：gzip, deflate, sdch, br
+  - ##### Accept-Language：zh-CN,zh;q=0.8
   - ##### Connection：close
-  - ##### Cookie：HTTP 请求发送时，会把保存在该请求域名下的所有cookie值一起发送给 web 服务器。
+  - ##### Cookie：HTTP 请求发送时，会把保存在该请求域名下的所有 cookie 值一起发送给 web 服务器
+  - ##### Referer：这个单词是 HTTP 规范拼错了，正确的单词是 referrer。这个属性表示发出该请求的页面 url。
+
+  - ##### Content-Type： application/x-www-form-urlencoded
+  - ##### Content-Length：请求消息正文的长度，GET 请求时为 0
+  - ##### Cache-Control：no-cache
+  - ##### Date：浏览器消息发出的时间
+
+
 
 
 #### 3. 空行
@@ -41,7 +47,7 @@
 ![响应报文结构](https://github.com/StRothschild/NetWork/blob/master/resource/NetWork%20%E2%80%94%20HTTP%20%E5%93%8D%E5%BA%94%E4%BD%93%E7%BB%93%E6%9E%84.png?raw=true)
 
 #### 1. 响应行
-  - #### 协议/版本 状态码 状态信息（HTTP/1.1 200 OK）
+  - #### 协议/版本 状态码 状态说明（HTTP/1.1 200 OK）
 
 #### 2. 响应首部(Response Header)
   - ##### Content-Type：text/html
