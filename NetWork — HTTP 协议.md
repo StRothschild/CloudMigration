@@ -27,7 +27,7 @@
   - ##### Cookie：HTTP 请求发送时，会把保存在该请求域名下的所有 cookie 值一起发送给 web 服务器
   - ##### Referer：这个单词是 HTTP 规范拼错了，正确的单词是 referrer。这个属性表示发出该请求的页面 url。
 
-  - ##### Content-Type：表示内容的类型，比如 application/x-www-form-urlencoded 表示表单类型的数据
+  - ##### Content-Type：表示内容的类型，比如 application/x-www-form-urlencoded 表示表单类型的数据，还有 text/plain 等类型
   - ##### Content-Length：请求消息正文的长度，GET 请求时为 0
   - ##### Cache-Control：no-cache
   - ##### Date：浏览器消息发出的时间
