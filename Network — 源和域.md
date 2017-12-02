@@ -23,13 +23,20 @@
   ##### html 中的静态资源，比如 \<script> 中的 src (获取JavaScript脚本) 、\<link> 中的 href (获取CSS) 和 \<img> 中的 src (获取图片)。
 
 
-  ---
-  - #### 不严格的同源策略（非同源的操作即是跨域操作）
-    ##### 1. 通过设置文档的 document.domain 属性来避免同源策略（1）的限制
-    ###### 在默认情况下 document.domain 的值是当前文档的来源主机名（hostName）。如果把两个不同源的文档设置成相同的 document.domain，则可以认为这两个文档是同源文档，而不受同源策略（1）的限制。
+---
+- #### 不严格的同源策略（非同源的操作即是跨域操作）
+  ##### 1. 通过设置文档的 document.domain 属性来避免同源策略（1）的限制
+  ###### 在默认情况下 document.domain 的值是当前文档的来源主机名（hostName）。如果把两个不同源的文档设置成相同的 document.domain，则可以认为这两个文档是同源文档，而不受同源策略（1）的限制。
 
-    ##### 2. 通过跨文档消息（cross-document messaging）来避免同源策略（2）的限制
-    ###### 通过 window 对象的 postMessage(data, origin) 方法和 onmessage 事件监听可以用异步的方式实现在不同源文档间的文本信息传递。
+  ##### 2. 通过跨文档消息（cross-document messaging）来避免同源策略（2）的限制
+  ###### 通过 window 对象的 postMessage(data, origin) 方法和 onmessage 事件监听可以用异步的方式实现在不同源文档间的文本信息传递。
 
-    ##### 3. 通过跨域资源共享（Cross-Origin Resource Sharing）来避免同源策略（3）的限制
-    ###### 跨域资源共享是通过请求头 origin，和返回头 Access-Control-Allow-Origin / Access-Control-Allow-Methods / Access-Control-Allow-Headers 等来实现的。简单的说，就是在跨域请求中添加一个 origin 的字段，来表明跨域请求的来源。然后浏览器通过返回结果的一些控制字段来决定是将结果返回给客户端脚本读取。如果在服务器中没有配置 cors，则返回结果就没有控制字段，浏览器会自动屏蔽脚本对返回信息的读取。
+  ##### 3. 通过跨域资源共享（Cross-Origin Resource Sharing）来避免同源策略（3）的限制
+  ###### 跨域资源共享是通过请求头 origin，和返回头 Access-Control-Allow-Origin / Access-Control-Allow-Methods / Access-Control-Allow-Headers 等来实现的。简单的说，就是在跨域请求中添加一个 origin 的字段，来表明跨域请求的来源。然后浏览器通过返回结果的一些控制字段来决定是将结果返回给客户端脚本读取。如果在服务器中没有配置 cors，则返回结果就没有控制字段，浏览器会自动屏蔽脚本对返回信息的读取。
+  
+  
+  
+  
+---
+- #### JSONP
+  
