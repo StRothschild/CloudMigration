@@ -20,7 +20,7 @@
 
 ---
 - #### 不受同源策略限制的情况
-  ##### html 中的静态资源，比如 \<script> 中的 src (获取JavaScript脚本) 、\<link> 中的 href (获取CSS) 和 \<img> 中的 src (获取图片)。
+  ##### html 中的可以获取静态资源的标签，比如 \<script> 中的 src (获取JavaScript脚本) 、\<link> 中的 href (获取CSS) 和 \<img> 中的 src (获取图片)，还有 \<iframe> 中的 src。
 
 
 ---
@@ -38,5 +38,5 @@
   
   
 ---
-- #### JSONP
-  
+- #### JSONP（JSON with Padding）
+  ##### 为了避免同源策略，可以使用JSONP的方式来获得非同源的JSON数据。其本质是利用了同源策略的例外情况()
