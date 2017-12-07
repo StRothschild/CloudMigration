@@ -42,11 +42,15 @@
   ##### 为了避免同源策略，可以使用JSONP的方式来获得非同源的JSON数据。其本质是利用了同源策略的例外情况（利用script标签）。
   ```html
   // 由于 JSONP 接口返回的是一个函数调用，并且这个调用会立即执行，所以在此处先行定义函数
-  <script type="text/javascript">
+  <script>
       function callbackFunctionName(data) {
            // do somthing about data
       }
   </script>
-  // 通过 script 标签发送请求，jsonpData 参数用于指定请求成功后返回的函数的名称，此名称需要与之前定义的函数名相同
-  <script type="text/javascript" src="http://foo.com/jsonpData?jsoncallback=callbackFunctionName"></script>
+  // 通过 script 标签发送请求，jsoncallback 参数用于指定请求成功后返回的函数的名称，此名称需要与之前定义的函数名相同
+  <script src="http://foo.com/jsonpData?jsoncallback=callbackFunctionName"></script>
+
+
+  // 后端针对上例中 jsonpData 接口实现返回内容如下：
+  callbackFunctionName(jsonData);
   ```
