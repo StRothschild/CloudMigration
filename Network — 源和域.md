@@ -33,24 +33,23 @@
 
   ##### 3. 通过跨域资源共享（Cross-Origin Resource Sharing）来避免同源策略（3）的限制
   ###### 跨域资源共享是通过请求头 origin，和返回头 Access-Control-Allow-Origin / Access-Control-Allow-Methods / Access-Control-Allow-Headers 等来实现的。简单的说，就是在跨域请求中添加一个 origin 的字段，来表明跨域请求的来源。然后浏览器通过返回结果的一些控制字段来决定是将结果返回给客户端脚本读取。如果在服务器中没有配置 cors，则返回结果就没有控制字段，浏览器会自动屏蔽脚本对返回信息的读取。
-  
-  
-  
-  
+
+
+
+
 ---
 - #### JSONP（JSON with Padding）
-  ##### 为了避免同源策略，可以使用JSONP的方式来获得非同源的JSON数据。其本质是利用了同源策略的例外情况（利用script标签，因为此标签在获取资源后会立即执行）。
+  ##### 为了避免同源策略，可以使用JSONP的方式来获得非同源的JSON数据。其本质是利用了同源策略的例外情况（利用script标签，因为此标签在获取资源后会立即执行）。
   ```html
-  // 由于 JSONP 接口返回的是一个函数调用，并且这个调用会立即执行，所以在此处先行定义函数
-  <script>
-      function callbackFunctionName(data) {
-           // do somthing about data
-      }
+  /* 由于 JSONP 接口返回的是一个函数调用，并且这个调用会立即执行，所以在此处先行定义函数 */
+  <script>
+    function callbackFunctionName(data) {
+    // do somthing about data
+    }
   </script>
-  // 通过 script 标签发送请求，jsoncallback 参数用于指定请求成功后返回的函数的名称，此名称需要与之前定义的函数名相同
-  <script src="http://foo.com/jsonpData?jsoncallback=callbackFunctionName"></script>
+  /* 通过 script 标签发送请求，jsoncallback 参数用于指定请求成功后返回的函数的名称，此名称需要与之前定义的函数名相同 */
+  <script src="http://foo.com/jsonpData?jsoncallback=callbackFunctionName"></script>
 
-
-  // 后端针对上例中 jsonpData 接口实现返回内容如下：
+  /* 后端针对上例中 jsonpData 接口实现返回内容如下 */
   callbackFunctionName(jsonData);
   ```
