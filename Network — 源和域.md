@@ -44,7 +44,7 @@
   /* 由于 JSONP 接口返回的是一个函数调用，并且这个调用会立即执行，所以在此处先行定义函数 */
   <script>
     function callbackFunctionName(data) {
-    // do somthing about data
+      // do somthing with data
     }
   </script>
   /* 通过 script 标签发送请求，jsoncallback 参数用于指定请求成功后返回的函数的名称，此名称需要与之前定义的函数名相同 */
