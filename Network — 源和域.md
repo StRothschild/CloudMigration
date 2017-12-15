@@ -41,7 +41,7 @@
 - #### JSONP（JSON with Padding）
   ##### 为了避免同源策略，可以使用JSONP的方式来获得非同源的JSON数据。其本质是利用了同源策略的例外情况（利用script标签，因为此标签在获取资源后会立即执行）。
   ```html
-  /* 由于 JSONP 接口返回的是一个函数调用语句，并且这个语句会立即执行，所以在此处先行定义函数名 */
+  /* 由于 JSONP 接口返回的是一个调用函数语句，并且这个语句会立即执行，所以在此处先行定义要被调用的函数 */
   <script>
     function callbackFunctionName(data) {
       // do somthing with data
@@ -50,6 +50,6 @@
   /* 通过 script 标签发送请求，jsoncallback 参数用于指定请求成功后返回的函数的名称，此名称需要与之前定义的函数名相同 */
   <script src="http://foo.com/jsonpData?jsoncallback=callbackFunctionName"></script>
 
-  /* 后端针对上例中 jsonpData 接口实现返回内容如下 */
+  /* 后端针对上例中 jsonpData 接口实现返回内容如下，调用之前定义好的函数 */
   callbackFunctionName(jsonData);
   ```
