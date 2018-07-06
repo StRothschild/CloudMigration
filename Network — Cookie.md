@@ -3,4 +3,5 @@
 
 ##### Cookie 是 HTTP 协议中的一个请求首部。
 ##### Cookie 是通过服务器端返回的 Set-Cookie 首部来投放并存储到客户端的。
+##### 客户端的 Cookie 是通过 HTTP 的 Cookie 首部发送给服务端的。
 ##### Cookie 分为 会话cookie（生命周期和浏览器同步，与 sessionStorage 不同） 和 永久cookie（设置 expire 属性）。
