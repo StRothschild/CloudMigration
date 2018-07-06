@@ -7,4 +7,6 @@
 ##### Cookie 分为 会话cookie（生命周期和浏览器同步，与 sessionStorage 不同） 和 永久cookie（设置 expire 属性）。
 
 
-https://github.com/StRothschild/Network/blob/master/resource/NetWork%20%E2%80%94%20Cookie.png?raw=true
+
+![Cookie](https://github.com/StRothschild/Network/blob/master/resource/NetWork%20%E2%80%94%20Cookie.png?raw=true)
+
