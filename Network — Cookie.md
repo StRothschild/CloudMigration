@@ -5,3 +5,6 @@
 ##### 服务器端的 Cookie 信息是通过 HTTP 的 Set-Cookie 首部来投放并存储到客户端的。
 ##### 客户端的 Cookie 是通过 HTTP 的 Cookie 首部返回给服务器端的。
 ##### Cookie 分为 会话cookie（生命周期和浏览器同步，与 sessionStorage 不同） 和 永久cookie（设置 expire 属性）。
+
+
+https://github.com/StRothschild/Network/blob/master/resource/NetWork%20%E2%80%94%20Cookie.png?raw=true
