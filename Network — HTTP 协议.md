@@ -1,5 +1,5 @@
 # HTTP 协议
-### HTTP 基本概念
+#### HTTP 基本概念
 - #### 超文本传输协议(Hypertext Transfer Protocol，简称HTTP)，与 FTP 、Telnet、SMTP 等协议一样，是应用层协议。
 
 - #### 1997年1月，HTTP/1.1 版本发布，相比 1.0 版本它进一步完善了 HTTP 协议，直到现在还是最流行的版本。
@@ -8,8 +8,24 @@
 
 
 
+
+
+
+
 ---
-### HTTP 请求报文
+#### Content-Type
+Content-Type类型 | 浏览器处理方式
+--|--
+text/html | 作为html文档
+text/plain | 无格式正文，不解析直接输出
+
+
+
+
+
+
+---
+#### HTTP 请求报文
 ![请求报文结构](https://github.com/StRothschild/NetWork/blob/master/resource/NetWork%20%E2%80%94%20HTTP%20%E8%AF%B7%E6%B1%82%E4%BD%93%E7%BB%93%E6%9E%84.jpg?raw=true)
 
 #### 1. 请求行
@@ -42,8 +58,12 @@
   ##### 请求数据，可以为空
 
 
+
+
+
+
 ---
-### HTTP 响应报文
+#### HTTP 响应报文
 ![响应报文结构](https://github.com/StRothschild/NetWork/blob/master/resource/NetWork%20%E2%80%94%20HTTP%20%E5%93%8D%E5%BA%94%E4%BD%93%E7%BB%93%E6%9E%84.png?raw=true)
 
 #### 1. 响应行
@@ -70,52 +90,53 @@
 
 
 ---
-### HTTP 请求方法
+#### HTTP 请求方法
 #### HTTP 请求方法主要有十多种，这些方法中，常用的有 POST、GET、PUT、DELETE。除了 GET 方法外，其他几个方法区别不大，甚至可以混用。要区分他们的用法，主要看请求的目的。这类似于 HTML 中标签语义化的概念。
 
-- #### PUT（增）
-- #### DELETE（删）
-- #### POST（改）
-- #### GET（查）
-- #### HEAD（ HEAD 与 GET 十分相似，只不过 HEAD 请求只返回响应头，而不会发送响应内容。当我们只需要查看某个资源的状态的时候，使用 HEAD 是非常高效的，因为在传输的过程中省去了资源内容）
-- #### OPTIONS
-- #### TRACE
-- #### CONNECT
+- PUT（增）
+- DELETE（删）
+- POST（改）
+- GET（查）
+- HEAD（ HEAD 与 GET 十分相似，只不过 HEAD 请求只返回响应头，而不会发送响应内容。当我们只需要查看某个资源的状态的时候，使用 HEAD 是非常高效的，因为在传输的过程中省去了资源内容）
+- OPTIONS
+- TRACE
+- CONNECT
 
-- #### PATCH
-- #### COPY
-- #### MOVE
-- #### LINK
-- #### UNLINk
-- #### WRAPPED
-- #### Extension-mothed
+- PATCH
+- COPY
+- MOVE
+- LINK
+- UNLINk
+- WRAPPED
+- Extension-mothed
 
-
-
-
-
-
----
-### GET 与 POST 的区别
-- #### 从 HTTP 协议的角度来看，不同的 method 之间最重要的是语义之间的区别，这个概念很类似与 HTML 标签。GET 代表的语义是 查询资源，而 POST 的语义是修改资源。
-
-- #### GET 可以使用缓存文件（304）；POST 无法使用缓存文件，因为它主要用于更新服务器上的文件或数据库。
-
-- #### 通过 GET 提交的数据必须放在 URL 中；而通过 POST 提交的数据放在请求体中。
-
-- #### GET 方式提交的数据最多只能是 1024 字节；而 POST 理论上没有限制，可传较大量的数据。
-
-- #### 通过 GET 提交数据，信息明文出现在 URL 上，所以有可能通过浏览器的页面缓存，或是历史纪录造成数据泄露。除此之外，使用GET提交数据还可能会造成 Cross-site request forgery 攻击。
-
-- #### GET 和 POST 都是明文传输，可能被抓包，所以都不安全。想要安全最好进行加密传输，就是用 HTTPS。
 
 
 
 
 
 ---
-### HTTP 状态码（status）
-#### status 状态码由三位数字组成，第一位数字表示响应的类型，常用的状态码有五大类如下所示：
+#### GET 与 POST 的区别
+
+  - 从 HTTP 协议的角度来看，不同的 method 之间最重要的是语义之间的区别，这个概念很类似与 HTML 标签。GET 代表的语义是 查询资源，而 POST 的语义是修改资源。
+
+  - GET 可以使用缓存文件（304）；POST 无法使用缓存文件，因为它主要用于更新服务器上的文件或数据库。
+
+  - 通过 GET 提交的数据必须放在 URL 中；而通过 POST 提交的数据放在请求体中。
+
+  - GET 方式提交的数据最多只能是 1024 字节；而 POST 理论上没有限制，可传较大量的数据。
+
+  - 通过 GET 提交数据，信息明文出现在 URL 上，所以有可能通过浏览器的页面缓存，或是历史纪录造成数据泄露。除此之外，使用GET提交数据还可能会造成 Cross-site request forgery 攻击。
+
+  - GET 和 POST 都是明文传输，可能被抓包，所以都不安全。想要安全最好进行加密传输，就是用 HTTPS。
+
+
+
+
+
+---
+#### HTTP 状态码（status）
+##### status 状态码由三位数字组成，第一位数字表示响应的类型，常用的状态码有五大类如下所示：
 
 - #### 1xx：信息，服务器收到请求，需要请求者继续执行操作;
 
@@ -127,7 +148,7 @@
 
 - #### 5xx：服务器错误，服务器在处理请求的过程中发生了错误;
 
-#### 常见的状态码及含义如下所示：
+##### 常见的状态码及含义如下所示：
 - #### 200 OK：表示客户端请求成功;
 
 - #### 304 Not Modified：表示服务器告诉客户端，原来缓存的的资源没有过期，还可以继续使用;
@@ -144,5 +165,5 @@
 
 
 ---
-### 参考
+#### 参考
 http://tools.jb51.net/table/http_request_method
