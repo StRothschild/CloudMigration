@@ -23,10 +23,10 @@
 #### Cookie 参数
 - expires: 过期时间，格式为GMT时间，这个时间以客户端时间为标准。
 
-- max-age: 有效期，单位为秒，这个时间以文档第一次被请求时服务器记录的Request_time为标准。
+- max-age: 有效期，单位为秒，这个时间以文档第一次被请求时服务器记录的 Request_time 为标准。
 
-- 不设置 max-age 和 expire 的情况下 Cookie 会在浏览器关闭时自动删除，称为会话 Cookie，值被存储在内存中。设置了 max-age 或 expire 时候，称为持久性 Cookie，值被存储在磁盘中。
+- 不设置 max-age 和 expire 的情况下 cookie 会在浏览器关闭时自动删除，称为会话 cookie，值被存储在内存中。设置了 max-age 或 expire 时候，称为持久性 Cookie，值被存储在磁盘中。
 
-- httpOnly: 默认为true, 此时cookie不能通过 document.cookie 获取
+- httpOnly: 只允许在服务器端访问 cookie，默认为true, 此时 cookie 不能通过客户端的 document.cookie 获取。但依然会被传回服务器端。
 
 - path: cookie 路径, 默认值是 '/'。
