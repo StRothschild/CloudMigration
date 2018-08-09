@@ -28,3 +28,5 @@
 - 不设置 max-age 和 expire 的情况下 Cookie 会在浏览器关闭时自动删除，称为会话 Cookie，值被存储在内存中。设置了 max-age 或 expire 时候，称为持久性 Cookie，值被存储在磁盘中。
 
 - httpOnly: 默认为true, 此时cookie不能通过 document.cookie 获取
+
+- path: cookie 路径, 默认值是 '/'。
