@@ -70,12 +70,14 @@ text/plain | 无格式正文，不解析直接输出
   - #### 协议/版本 状态码 状态说明（HTTP/1.1 200 OK）
 
 #### 2. 响应首部(Response Header)
-  - ##### Content-Type：text/html
-  - ##### Content-Length：响应体的长度
-  - ##### Cache-Control：no-cache
-  - ##### Date：原始服务器消息发出的时间
-  - ##### Expires：响应过期的日期和时间
-  - ##### Last-Modified：请求资源的最后修改时间
+  - ##### Content-Type: text/html
+  - ##### Content-Length: 响应体的长度
+  - ##### Cache-Control: no-cache
+  - ##### Date: 原始服务器消息发出的时间
+  - ##### Expires: 响应过期的日期和时间
+  - ##### Last-Modified: 请求资源的最后修改时间
+  - ##### Content-Disposition: 指示响应的内容该以何种形式展示，是以内联的形式（即网页或者页面的一部分，值为 inline, 是默认值），还是以附件的形式下载并保存到本地（attachment 或者 attachment;filename="fileName"）。
+
 
 
 #### 3. 空行
